@@ -6,7 +6,6 @@ import { connect } from 'react-redux';
 import Recipe from '../recipe/Recipe'
 import Filter from '../filter/Filter'
 import Pages from '../pages/Pages'
-import Coding from '../../img/about.gif'
 
 
 const Recipes = ({ location, allrecipes, searchedRecipes, searchRecipes, getRecipes, getDiets }) => {
@@ -87,18 +86,15 @@ const Recipes = ({ location, allrecipes, searchedRecipes, searchRecipes, getReci
       <div>
         <Filter filter={handleFilter} order={handleOrder} />
         <div className="recipes">
-        {recipes.length > 0 ? recipes.slice((page - 1) * 9, page * 9).map(r => <div key={r.name + r.id}>
-          <Recipe
+        {recipes.map(r =>(<div>           
+              <Recipe
                 id={r.id}
                 title={r.title}
                 img={r.image}
                 diet={r.diets}
                 score={r.spoonacularScore}
               />
-        </div>) :
-          <div>
-            <img src={Coding} alt='Coding gif' />
-          </div>}    
+            </div>))}   
             <Pages allRecipes={recipes} page={page} />   
       </div>
       </div>
