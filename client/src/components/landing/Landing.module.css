@@ -1,0 +1,65 @@
+.container{
+  display: flex;
+  justify-items: center;
+  flex-direction: column;
+  background-image: url("../../img/portada2.jpg") ;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+  overflow: hidden;
+}
+.divH1{
+   align-self: center;
+   margin-top: 50px;
+}
+.h1:hover{
+   background-color: whitesmoke;
+   border-radius: 10px;
+}
+.h1{
+   text-align: center;
+   font-family: 'Oswald', Helvetica, sans-serif;
+   margin: 0px;
+   line-height: 1.25; 
+   text-shadow: 
+   -1px -1px 0 rgb(30, 163, 59),
+   -2px -2px 0 rgb(30, 163, 59),
+   -3px -3px 0 rgb(30, 163, 59);
+   font-size: 40px; 
+   font-weight: absolute;
+   background-color:transparent;
+   color:#3D9970;
+   border-width: 10px;
+   transition: 0.3s;
+}
+.button{
+   padding: 18px 100px 18px 55px;
+   margin-top: 200px;
+   margin-left: 30px;
+   border-radius:2em;
+   box-sizing: border-box;
+   text-decoration:none;
+   font-family: unset;
+   font-weight:500;
+   font-size: 20px;
+   font-variant: small-caps;
+   color:#FFFFFF;
+   background-color: rgb(32, 173, 173);
+   text-align:center;
+   transition: all 0.2s;
+   width: 15%;    
+}
+.button:hover{
+   background-color: cadetblue;
+   cursor: pointer;
+}
+.divButton{
+   align-self:center;
+}
+
+/* .footer{
+   font-size: 15px;
+   color: yellow;
+   align-self: center;
+   margin-top: 225px;
+} */

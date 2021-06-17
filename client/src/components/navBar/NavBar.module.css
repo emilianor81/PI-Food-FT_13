@@ -1,0 +1,46 @@
+.NavBar{
+  background-color: rgb(225, 225, 225);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 1rem 2rem;
+  font-size: 0.8rem;
+}
+
+.input{
+  border-radius: 1.2rem;
+  height: 25px;
+  margin-right: 15px;
+}
+
+.boton{
+  border-radius: 1.2rem;
+    height: 32px;
+    color: brown;
+
+}
+
+.Links{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin-left: 2px;
+  
+}
+
+.Form{
+  width: 20rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+
+.link{
+  margin-left: 15px;
+  color: brown;
+  list-style: none;
+  font-size: 4mm;
+  text-decoration: none;
+}
