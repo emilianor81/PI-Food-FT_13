@@ -25,14 +25,7 @@ const Recipes = ({ location, allrecipes, searchedRecipes, searchRecipes, getReci
     }
   }, [location.search])
 
-  // useEffect(() => {
-  //   if (searchedRecipes) {
-  //     setRecipes(searchedRecipes)
-  //   }
-  //   else {
-  //     setRecipes(allrecipes)
-  //   }
-  // }, [allrecipes, searchedRecipes])
+ 
 
   useEffect(() => {
     if (searchedRecipes && searchedRecipes!== 'undefined') {
@@ -79,26 +72,21 @@ const Recipes = ({ location, allrecipes, searchedRecipes, searchRecipes, getReci
     }
   }
 
-  // function handleFilter(param) {
-  //   if (recipes.filter(r => r.diets.includes(param.toLowerCase())).length>0){
-  //     return setRecipes(recipes.filter(r => r.diets.includes(param.toLowerCase())))
-  //  } else {
-  //    return setRecipes([...allrecipes])};
-  // }
-
   function handleFilter(param) {
-    return setRecipes(recipes.filter(r => r.title.includes('and')))
-  //   if (param !== undefined && param.length)
-  //     {return setRecipes(recipes.filter(r => r.diets.includes(param.toLowerCase())))
-  //  } else {return setRecipes([...allrecipes])};
-  }
-  
+    if (param !== '') {
+      if (recipes.filter(r => r.diets.includes(param.toLowerCase())).length>0){
+        return setRecipes(recipes.filter(r => r.diets.includes(param.toLowerCase())))
+     } else {
+       return setRecipes([...allrecipes])};
+    }
+    }
+    
  
     return(
       <div>
         <Filter filter={handleFilter} order={handleOrder} />
         <div className="recipes">
-        {allrecipes.map(r =>(<div>           
+        {recipes.map(r =>(<div>           
               <Recipe
                 id={r.id}
                 title={r.title}

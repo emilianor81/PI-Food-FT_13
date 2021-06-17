@@ -22,13 +22,6 @@ function Recipe(props) {
   )
 }
 
-// return (
-//   <div className='Recipe' >
-//     <h3 className='RecipeName'>{props.title}</h3>
-//     <div className='RecipeInfo'><div className='Diets'>
-
-//     </div>
-//     )
 
 function mapStateToProps(state) {
   return {

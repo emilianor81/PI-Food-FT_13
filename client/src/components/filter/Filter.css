@@ -13,12 +13,15 @@
   margin: 0 1rem;
   border: none;
   text-decoration: none;
+  cursor: pointer;
 
 }
+
 
 .DropdownButton:hover .DropdownButton:focus{
   outline: none;
   border: none;
+  
   background-color: rgba(114, 224, 160, 0.699);
 }
 

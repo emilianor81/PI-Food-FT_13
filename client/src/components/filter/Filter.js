@@ -20,17 +20,14 @@ function Filter (props) {
         <div className='Filtering'>
           <button className='DropdownButton'>Filter</button>
           <div className='Filters'>
-            <button onClick={(e) => { e.preventDefault(); props.filter('');}}>Clean Filters</button>
+            {/* <button onClick={(e) => { e.preventDefault(); props.filter('');}}>Clean Filters</button> */}
             {props.diets.map(d => <button key={d.id}
               onClick={(e) => {e.preventDefault(); props.filter(d.name)}}>{d.name}</button>)}
           </div>
          
         </div>
         <div>
-          <button className='DropdownButton'
-            onClick={(e) => { e.preventDefault(); searchRecipes(''); props.filter(); }}>
-            <Link to='/home'>Clear Search</Link>
-            </button>
+        <button className='DropdownButton clear' onClick={(e) => {e.preventDefault(); props.order('')}}>Clear Search</button>
         </div>
        </div>
   )

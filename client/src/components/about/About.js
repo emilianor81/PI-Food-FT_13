@@ -1,6 +1,6 @@
 import React  from 'react';
 import "./About.css";
-
+import gatito from '../../img/about1.gif'
 
 
 const About = () => {
