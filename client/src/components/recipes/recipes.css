@@ -3,5 +3,6 @@
   /* flex-direction: row; */
   flex-wrap: wrap;
   justify-content: flex-start;
+  background-color: rgb(225, 225, 225);
 }
 

@@ -46,7 +46,7 @@ function Create(props) {
           <label className='LabelTitle'>Summary:</label>
           <textarea name='summary' onChange={handleInputChange} />
 
-          <label className='LabelTitle'>instructions:</label>
+          <label className='LabelTitle'>Instructions:</label>
           <textarea name='instructions' onChange={(e) => setForm({ ...form, instructions: e.target.value })} />
         </div>
         <div className='DietsAndSubmitButton'>
@@ -58,6 +58,8 @@ function Create(props) {
           
         </div>
       </form> 
+      <button className='CreateSubmitButton' ><Link className='Link' to='/home'>Back to Home</Link></button>
+
     </div>
   )
 }

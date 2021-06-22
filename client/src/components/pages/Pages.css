@@ -1,6 +1,7 @@
 .Pagination {
   width: 100%;
-  background-color: rgb(227, 214, 72);
+  background-color: rgba(114, 224, 160, 0.699);
+  /* background-color: rgb(227, 214, 72); */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -8,7 +9,8 @@
 
 .Pagination button {
   font-size: 1.2rem;
-  background-color: rgb(227, 214, 72);
+  background-color: rgba(114, 224, 160, 0.699);
+  /* background-color: rgb(227, 214, 72); */
   outline: none;
   color: white;
   padding: 1rem;
@@ -19,7 +21,8 @@
 .Pagination button:hover, .Pagination button:focus{
   outline: none;
   border: none;
-  background-color: rgb(206, 194, 69);
+  background-color: rgba(114, 224, 160, 0.699);
+  /* background-color: rgb(206, 194, 69); */
   cursor: pointer;
 }
 

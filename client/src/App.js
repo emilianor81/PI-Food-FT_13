@@ -7,11 +7,12 @@ import NavBar from './components/navBar/NavBar'
 import Recipes from './components/recipes/Recipes'
 import About  from './components/about/About';
 import Create from './components/create/Create'
+import Detail from './components/detail/Detail'
 // import Recipes from './components/recipes/Recipes'
 
 
 function App() {
-  const routes = ['/home', '/about', '/recipe/:recipeId', '/create'];
+  const routes = ['/home', '/about', '/detail', '/create'];
     return (
     <>
        <Route exact path="/" component={Landing}/>
@@ -20,6 +21,7 @@ function App() {
        <Route path={routes[0]}  component={Recipes}/>
        <Route path={routes[1]} component={About}/>
        <Route path={routes[3]}  component={Create}/>
+       <Route path={routes[2]} component={Detail}/>
     </>
  
     

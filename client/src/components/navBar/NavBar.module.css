@@ -12,13 +12,24 @@
   border-radius: 1.2rem;
   height: 25px;
   margin-right: 15px;
+  background-color: white;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  box-shadow: 1px 1px 4px #ccc inset;
 }
 
 .boton{
-  border-radius: 1.2rem;
+  /* border-radius: 1.2rem; */
     height: 32px;
     color: brown;
+    background-color: white;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    box-shadow: 1px 1px 4px #ccc inset;
+}
 
+.boton:hover{
+  cursor: pointer;
 }
 
 .Links{

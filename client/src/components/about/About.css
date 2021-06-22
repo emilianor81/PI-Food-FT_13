@@ -1,20 +1,35 @@
 .container {
-    background-color: rgba(240, 240, 240, 0.8);
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: flex-start;;
     width: 50.5rem;
-       height: 49rem;
+    height: 30rem;
     background-color: rgba(240, 240, 240, 0.8);
     border-radius: 1rem;
     margin: 8rem;
-    margin-top: 30px;
+    margin-top: 20px;
     border: 0.1rem solid rgba(255, 255, 255, 0.4);
     color: rgb(70, 70, 70);
-    box-shadow: 0.2rem 0.2rem 1rem rgba(20, 20, 20, 0.8);
+    box-shadow: 0.2rem 0.2rem 1rem rgb(20 20 20 / 80%);
+    flex-direction: column;
+    align-items: center;
+   
 }
 
+.parrafos{
+  display: flex;
+  font-size: 13px;
+  flex-direction: column;
+  font-weight: bold;
+}
+.img{
+  width: 70%;
+  height: auto; 
+  object-fit: cover;
+  }
+
 .p{
-  width:86%
+  display: flex;
+  justify-content: center;
 }
   
 
@@ -24,7 +39,6 @@ h3{
 
 .central{
   width: 70%;
-  height: 40%;
   background-color: rgba(240, 240, 240, 0.8);
   margin-top: 10px;
   display: flex;

@@ -1,5 +1,4 @@
 import React, {useState, useEffect} from 'react';
-import { Link } from 'react-router-dom';
 import style from "./recipes.css";
 import { searchRecipes, getRecipes, getDiets } from '../../redux/Actions';
 import { connect } from 'react-redux';
@@ -10,12 +9,11 @@ import Coding from '../../img/about.gif'
 
 
 const Recipes = ({ location, allrecipes, searchedRecipes, searchRecipes, getRecipes, getDiets }) => {
-  
   useEffect(() => {
     getRecipes()
     getDiets();
   }, [getRecipes, getDiets])
-
+// }, [getRecipes, getDiets])
 
   const [recipes, setRecipes] = useState([]);
   const [page, setPage] = useState(1);
@@ -29,7 +27,7 @@ const Recipes = ({ location, allrecipes, searchedRecipes, searchRecipes, getReci
 
  
   useEffect(() => {
-    if (searchedRecipes && searchedRecipes!== 'undefined') {
+    if (searchedRecipes.length > 0 && searchedRecipes !== 'undefined') {
       setRecipes(searchedRecipes)
     }
     else {
@@ -73,30 +71,31 @@ const Recipes = ({ location, allrecipes, searchedRecipes, searchRecipes, getReci
     }
   }
 
+ 
   function handleFilter(param) {
-    if (param !== '') {
-      if (recipes.filter(r => r.diets.includes(param.toLowerCase())).length>0){
+     if (recipes.filter(r => r.diets.includes(param.toLowerCase()))){
         return setRecipes(recipes.filter(r => r.diets.includes(param.toLowerCase())))
      } else {
        return setRecipes([...allrecipes])};
-    }
-    }
+  }
     
  
     return(
       <div>
         <Filter filter={handleFilter} order={handleOrder} />
         <div className="recipes">
-        {recipes.length > 0 ? recipes.slice((page - 1) * 9, page * 9).map(r => <div key={r.name + r.id}>
+        {recipes.length > 0 ? recipes.slice((page - 1) * 9, page * 9).map(r => <div key={r.id}>
+          {console.log(recipes)}
           <Recipe
                 id={r.id}
                 title={r.title}
                 img={r.image}
-                diet={r.diets}
+                diet={r.diet?r.diet:r.diets}
                 score={r.spoonacularScore}
               />
         </div>) :
           <div>
+            <h2>No se encontraron recetas que coincidan con la busqueda</h2>
             <img src={Coding} alt='Coding gif' />
           </div>}    
             <Pages allRecipes={recipes} page={page} />   
@@ -106,9 +105,11 @@ const Recipes = ({ location, allrecipes, searchedRecipes, searchRecipes, getReci
     )
 }
 
+
+
 function mapStateToProps(state) {
   return {
-    recipes: state.searchedRecipes,
+    searchedRecipes: state.searchedRecipes,
     allrecipes: state.allRecipes,
     alldiets: state.allDiets
   }

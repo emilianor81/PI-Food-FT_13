@@ -17,7 +17,6 @@ const addRecipe = router.post('/', async (req, res, next) => {
                 where: {name},
                 defaults: {name, id:(ids = ids+1)}
             })
-            console.log(ids);
             array.push(dietBD[0].dataValues.id)
         }
     } else { 
@@ -33,20 +32,15 @@ const addRecipe = router.post('/', async (req, res, next) => {
         spoonacularScore, 
         healthScore, 
         instructions, 
-        id 
+        id
+        
     };
     if(!sentRecipe) return res.send('Dato No Valido');
     try{
         const newRecipe = await Recipe.create(sentRecipe);
-        // si diets es un array le aplicamos for, sino, le hacemos lo mismo
-        /*
-        await Diet.findOrCreate({
-            where: {diet[i]},
-            defaults: {diet[i], id}
-            })
-        */
-       array.forEach(e=>{
+        array.forEach(e=>{
            newRecipe.setDiets(e);
+           
        })
         arry = [];
         // console.log(newRecipe);

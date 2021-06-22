@@ -21,6 +21,7 @@ const NavBar = (props) => {
   function handleSubmit(e) {
     e.preventDefault()
     props.searchRecipes(recipe)
+    setRecipes('')
     // console.log(recipes)
     // props.searchRecipes(recipe)
   }
@@ -34,7 +35,7 @@ const NavBar = (props) => {
         </div>
       <div  className={style.form}> 
       <form onSubmit={(e) => { handleSubmit(e) }}>
-          <input className={style.input} id='SearchInput' type='text' placeholder='Recipes' value={recipe}
+          <input className={style.input} id='SearchInput' type='text' placeholder='Ingrese su busqueda' value={recipe}
             onChange={(e) => { handleChange(e) }}/>
           <input className={style.boton} id='SearchSubmitButton' type='submit' value='Search' />
         </form>
