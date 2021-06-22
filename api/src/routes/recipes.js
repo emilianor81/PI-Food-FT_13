@@ -73,8 +73,10 @@ const Recipes = router.get('/', async (req, res) => {
            }
         });
         const recipePropias = await Recipe.findAll({
-          include: [Diet]
-      });
+          include: Diet});
+      // const dbRecipes = Recipe.findAll({where: {name: {[Op.like]: `%${name}%`}}, include: Diet})
+        console.log(recipePropias[0].dataValues.diets[0].dataValues.name)
+        //este es el array que tengo que enviar: recipePropias[0].dataValues.diets[0]
         recipePropias.forEach(recipe => {
              let {id, title, spoonacularScore, summary, healthScore, instructions} = recipe;
              if (recipe.title.toLowerCase().includes(name)){ 

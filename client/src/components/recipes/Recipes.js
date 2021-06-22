@@ -73,11 +73,17 @@ const Recipes = ({ location, allrecipes, searchedRecipes, searchRecipes, getReci
 
  
   function handleFilter(param) {
-     if (recipes.filter(r => r.diets.includes(param.toLowerCase()))){
-        return setRecipes(recipes.filter(r => r.diets.includes(param.toLowerCase())))
-     } else {
+     if (recipes.filter(r => {if(r.diets !== undefined && r.diets !== '') r.diets.includes(param.toLowerCase())}))
+      {return setRecipes(recipes.filter(r => {if(r.diets !== undefined && r.diets !== '')r.diets.includes(param.toLowerCase())}          ))
+     }else{
        return setRecipes([...allrecipes])};
-  }
+     } //   NO ROMPE CUANDO HAY UNA CREADA, PERO ME DICE QUE NINGUNA COINCIDE CON LA BUSQUEDA
+//   if (recipes.filter(r => r.diets.includes(param.toLowerCase()))){
+//     return setRecipes(recipes.filter(r => r.diets.includes(param.toLowerCase())))
+//  } else {
+//    return setRecipes([...allrecipes])};
+// }
+
     
  
     return(
