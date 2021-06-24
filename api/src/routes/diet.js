@@ -8,13 +8,13 @@ const express = require('express');
 // const Diet = require('../models/Diet');
 const { Diet } = require('../db')
 
+
 const dietTypes = router.get('/',async (req, res) =>{
   // HACER UN GET DE TODAS LAS RECETAS Y SACARLE A CADA UNA LAS DIETAS Y ESTAS DIETAS PONERLAS EN UN ARREGLO
   // Y METERLA EN MI TABLA DIETA SI NO EXISTEN
        try {
         const dietsBD = await Diet.findAll()
         return res.json(dietsBD)
-
       }catch{
         console.log('hay un error en los types')
       }

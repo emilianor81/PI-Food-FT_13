@@ -26,6 +26,7 @@ const addRecipe = router.post('/', async (req, res, next) => {
             })
             array.push(dietBD2[0].dataValues.id)
         }
+        
     const sentRecipe = { 
         title, 
         summary, 
@@ -39,10 +40,9 @@ const addRecipe = router.post('/', async (req, res, next) => {
     try{
         const newRecipe = await Recipe.create(sentRecipe);
         array.forEach(e=>{
-           newRecipe.setDiets(e);
-           
+        newRecipe.setDiets(e); 
        })
-        arry = [];
+        array = [];
         return res.send(newRecipe);
     }catch (err){
         next(err);

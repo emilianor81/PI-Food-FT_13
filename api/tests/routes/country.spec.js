@@ -3,12 +3,16 @@ const { expect } = require('chai');
 const session = require('supertest-session');
 const app = require('../../src/app.js');
 const { Recipe, conn } = require('../../src/db.js');
+const { v4: uuid } = require('uuid');
 
+id=uuid()
 const agent = session(app);
 const recipe = {
-  name: 'Milanea a la napolitana',
-  summary: 'something'
+  title: 'Milanea a la napolitana',
+  summary: 'milanga', 
+  id
 };
+
 
 describe('Recipe routes', () => {
   before(() => conn.authenticate()
