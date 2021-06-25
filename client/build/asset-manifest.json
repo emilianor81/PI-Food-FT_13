@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/emilianor81/PI-Food-FT_13.git/static/css/main.be9cdf6a.chunk.css",
+    "main.js": "/emilianor81/PI-Food-FT_13.git/static/js/main.fcb71731.chunk.js",
+    "main.js.map": "/emilianor81/PI-Food-FT_13.git/static/js/main.fcb71731.chunk.js.map",
+    "runtime-main.js": "/emilianor81/PI-Food-FT_13.git/static/js/runtime-main.1a4edcce.js",
+    "runtime-main.js.map": "/emilianor81/PI-Food-FT_13.git/static/js/runtime-main.1a4edcce.js.map",
+    "static/js/2.ac74dfde.chunk.js": "/emilianor81/PI-Food-FT_13.git/static/js/2.ac74dfde.chunk.js",
+    "static/js/2.ac74dfde.chunk.js.map": "/emilianor81/PI-Food-FT_13.git/static/js/2.ac74dfde.chunk.js.map",
+    "static/js/3.56efa48a.chunk.js": "/emilianor81/PI-Food-FT_13.git/static/js/3.56efa48a.chunk.js",
+    "static/js/3.56efa48a.chunk.js.map": "/emilianor81/PI-Food-FT_13.git/static/js/3.56efa48a.chunk.js.map",
+    "index.html": "/emilianor81/PI-Food-FT_13.git/index.html",
+    "static/css/main.be9cdf6a.chunk.css.map": "/emilianor81/PI-Food-FT_13.git/static/css/main.be9cdf6a.chunk.css.map",
+    "static/js/2.ac74dfde.chunk.js.LICENSE.txt": "/emilianor81/PI-Food-FT_13.git/static/js/2.ac74dfde.chunk.js.LICENSE.txt",
+    "static/media/about.1f666691.gif": "/emilianor81/PI-Food-FT_13.git/static/media/about.1f666691.gif",
+    "static/media/about1.ca308387.gif": "/emilianor81/PI-Food-FT_13.git/static/media/about1.ca308387.gif",
+    "static/media/default.f010a1ba.jpg": "/emilianor81/PI-Food-FT_13.git/static/media/default.f010a1ba.jpg",
+    "static/media/Landing.module.css": "/emilianor81/PI-Food-FT_13.git/static/media/portada2.93d1f444.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.1a4edcce.js",
+    "static/js/2.ac74dfde.chunk.js",
+    "static/css/main.be9cdf6a.chunk.css",
+    "static/js/main.fcb71731.chunk.js"
+  ]
+}
