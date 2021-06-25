@@ -37,7 +37,10 @@ const RecipeDetail = router.get('/:id', async (req, res) => {
            const apiRecipe = await axios.get(`${BASE_URL}/${id}/information?apiKey=${API_KEY}`);
          if(apiRecipe){
            let { title,  image, spoonacularScore, healthScore, diets, summary, analyzedInstructions } = apiRecipe.data;
-          return res.send({title, image, summary, analyzedInstructions, spoonacularScore, healthScore, diets }); 
+           let instructionsArray = [];
+           analyzedInstructions[0].steps.forEach(s => instructionsArray.push({id: s.number, step: s.step}));
+           console.log(instructionsArray);
+          return res.send({title, image, summary, analyzedInstructions: instructionsArray , spoonacularScore, healthScore, diets }); 
          }   
         }
      }
@@ -87,17 +90,13 @@ const Recipes = router.get('/', async (req, res) => {
     const recipesArray = [];
        try{
       if (!name) {
-            const recipeResponses = await axios.get(`${BASE_URL}/${URL_COMPLEX}?apiKey=${API_KEY}&${URL_DETAIL}&number=50`);
+            const recipeResponses = await axios.get(`${BASE_URL}/${URL_COMPLEX}?apiKey=${API_KEY}&${URL_DETAIL}&number=20`);
             recipeResponses.data.results.forEach(recipe => {
                let {id, title, image, spoonacularScore, summary, healthScore, instructions, diets} = recipe;
                 recipesArray.push({id, title, image, spoonacularScore, summary, healthScore, instructions, diets})
             });
-          //   const recipePropias = await Recipe.findAll({include: [Diet]// });
           const recipePropias = await Recipe.findAll({include: Diet});
-            // recipePropias.forEach(recipe => {
-            //      let {id, title, spoonacularScore, summary, healthScore, instructions} = recipe;
-            //      recipesArray.push({id, title, spoonacularScore, summary, healthScore, instructions})
-            // });
+            
             recipePropias.forEach(recipe => {
               let {id, title, spoonacularScore, summary, healthScore, instructions} = recipe;
                       const {diets} = recipe.dataValues
@@ -106,7 +105,7 @@ const Recipes = router.get('/', async (req, res) => {
                         diet.push(diets[i].dataValues.name)
                       }
                    recipesArray.push({id, title, spoonacularScore, summary, healthScore, instructions, diets: diet})
-              
+          
          });       
             if(recipesArray.length > 0){
               return res.send(recipesArray)

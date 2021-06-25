@@ -8,7 +8,7 @@ const { v4: uuid } = require('uuid');
 id=uuid()
 const agent = session(app);
 const recipe = {
-  title: 'Milanea a la napolitana',
+  title: 'Milanesa a la napolitana',
   summary: 'milanga', 
   id
 };
