@@ -72,12 +72,22 @@ const Recipes = ({ location, allrecipes, searchedRecipes, searchRecipes, getReci
   }
 
  
-  function handleFilter(param) {
-     if (recipes.filter(r => {if(r.diets !== undefined && r.diets !== '') r.diets.includes(param.toLowerCase())}))
-      {return setRecipes(recipes.filter(r => {if(r.diets !== undefined && r.diets !== '')r.diets.includes(param.toLowerCase())}          ))
-     }else{
-       return setRecipes([...allrecipes])};
-     } //   NO ROMPE CUANDO HAY UNA CREADA, PERO ME DICE QUE NINGUNA COINCIDE CON LA BUSQUEDA
+  // function handleFilter(param) {
+  //    if (recipes.filter(r => {if(r.diets !== undefined && r.diets !== '') r.diets.includes(param.toLowerCase())}))
+  //     {return setRecipes(recipes.filter(r => {if(r.diets !== undefined && r.diets !== '')r.diets.includes(param.toLowerCase())}          ))
+  //    }else{
+  //      return setRecipes([...allrecipes])};
+  //    } 
+
+
+     function handleFilter(param) {
+      if (param !== undefined && param.length){return setRecipes(recipes.filter(r =>r.diets!==undefined? r.diets.map(e=> e=e.toLowerCase()).includes(param.toLowerCase()): null))
+     } else {return setRecipes([...allrecipes])};
+    }
+
+    // {diets.filter(d => {return r.diets? r.diets.map(e=> e=e.toLowerCase()).includes(d.name.toLowerCase()):null || r.diets?r.diets.find(diet => d.name === diet.name):null})
+    //         .map(d => <h3 className='diets' key={d.name}>{d.name}</h3>)}
+     //   NO ROMPE CUANDO HAY UNA CREADA, PERO ME DICE QUE NINGUNA COINCIDE CON LA BUSQUEDA
 //   if (recipes.filter(r => r.diets.includes(param.toLowerCase()))){
 //     return setRecipes(recipes.filter(r => r.diets.includes(param.toLowerCase())))
 //  } else {
@@ -91,8 +101,7 @@ const Recipes = ({ location, allrecipes, searchedRecipes, searchRecipes, getReci
         <Filter filter={handleFilter} order={handleOrder} />
         <div className="recipes">
         {recipes.length > 0 ? recipes.slice((page - 1) * 9, page * 9).map(r => <div key={r.id}>
-          {console.log(recipes)}
-          <Recipe
+            <Recipe
                 id={r.id}
                 title={r.title}
                 img={r.image}

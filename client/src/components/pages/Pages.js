@@ -4,6 +4,7 @@ import './Pages.css';
 
 export default function Pages({ allRecipes, page }) {
   const totalPages = Math.ceil(allRecipes.length / 9)
+  // if(allRecipes.length < 9 ) totalPages = 1;
   const pagesAround = 2;
   const totalNumbers = (pagesAround * 2) + 3;
   const totalButtons = totalNumbers + 2;
@@ -55,10 +56,9 @@ export default function Pages({ allRecipes, page }) {
     }
     
     const pagesToRender = fetchPageNumbers();
-    
-    return (
+     return (
       <div className='Pagination'>
-      {pagesToRender.map((p, index) => {
+      {allRecipes.length>9? pagesToRender.map((p, index) => {
         if (p === 'LEFT') return (
           <Link key={index} className='PaginationLink Left' to={`/home?page=${(parseInt(page) - 1)}`}><button>Prev</button></Link>
         )
@@ -69,7 +69,7 @@ export default function Pages({ allRecipes, page }) {
           <Link key={index} className='PaginationLink Center' to={`/home?page=${p}`}><button>{p}</button></Link>
         )
       }
-      )}
+      ):null}
     </div>
   )
 

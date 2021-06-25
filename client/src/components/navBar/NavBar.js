@@ -13,7 +13,6 @@ const NavBar = (props) => {
   //   getDiets();
   // }, [getRecipes, getDiets])
 
-
   function handleChange(event) {
     setRecipes(event.target.value)
   }

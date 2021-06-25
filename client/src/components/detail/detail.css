@@ -5,17 +5,10 @@
   border-radius: 2rem;
 }
 
-#Info{
+#Detail{
   padding: 2rem;
 }
 
-#Info h2{
-  text-decoration: underline;
-}
-
-.Diets h3{
-  text-transform: capitalize;
-}
 
 #RecipeImage{
   display: block;
@@ -27,28 +20,15 @@
   object-position: center center;
 }
 
-#SummaryAndSBS{
+#sumary{
   padding: 2rem;
 }
 
-#SummaryAndSBS div{
+#sumary div{
   text-align: justify;
 }
 
-#SBS{
+#instruc{
   padding: 1rem;
 }
 
-.BackButton {
-  position: absolute;
-  right: 4rem;
-  top: 6rem;
-  text-decoration: none;
-  font-size: 0.8rem;
-  border-radius: 0.2rem;
-  outline: none;
-  border:0.5px solid rgba(227, 214, 72, 0.7);
-  padding: 1rem 1.5rem ;
-  background-color: rgba(227, 214, 72, 0.7);
-  color: rgb(40, 40, 40)
-}

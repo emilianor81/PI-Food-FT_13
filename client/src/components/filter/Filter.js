@@ -8,7 +8,7 @@ function Filter (props) {
   return (
     <div id='OrderingAndFiltering'>
         <div className='Ordering'>
-          <button className='DropdownButton'>Order</button>
+          <button className='DropdownButton'>Sort</button>
           <div className='Orders'>
             <button onClick={(e) => {e.preventDefault(); props.order('')}}>More Relevants</button>
             <button onClick={(e) => {e.preventDefault(); props.order('A-Z')}}>A - Z</button>
@@ -27,7 +27,7 @@ function Filter (props) {
          
         </div>
         <div>
-        <button className='DropdownButton clear' onClick={(e) => {e.preventDefault(); props.order('')}}>Clear Search</button>
+        <button className='DropdownButton clear' onClick={(e) => {e.preventDefault(); props.order('')}}>Reset Filter</button>
         </div>
        </div>
   )

@@ -3,7 +3,7 @@ import './Recipe.css';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { searchRecipeDetail } from '../../redux/Actions'
-
+import image from '../../img/default.jpg'
 
 function Recipe(props) {
   return(
@@ -12,7 +12,7 @@ function Recipe(props) {
              <h3>{props.title} </h3> 
              <h5>Score : {props.score}</h5>
              <div className='Diets'>
-             {props.diets.filter(d => {if (props.diet !== undefined){return props.diet.includes(d.name.toLowerCase()) || props.diet.find(diet => d.name === diet.name)}
+             {props.diets.filter(d => {if (props.diet !== undefined){return props.diet.includes(d.name.toLowerCase()) || props.diet.find(diet => d.name === diet)}
       else{return props.diets}})
         .map(d => <span className='diets' key={d.id}>{d.name?d.name:props.diet}</span>)}
         
@@ -22,10 +22,8 @@ function Recipe(props) {
                     .map(d => <span className='diets' key={d.id}>{d.name}</span>)}    */}
                    
               </div>
-              <Link to="/detail"><button className='buton' onClick={() => props.searchRecipeDetail(props.id)}>Detalles</button></Link> 
-
-             {/* <img src={props.img} className='RecipeImage' alt='recipe' />          */}
-             <img src={props.img} className='RecipeImage' alt='recipe' />         
+              <Link to="/detail"><button className='buton' onClick={() => props.searchRecipeDetail(props.id)}>Detail</button></Link> 
+             <img src={props.img?props.img: image} className='RecipeImage' alt='recipe' />         
 
            </div>
 
