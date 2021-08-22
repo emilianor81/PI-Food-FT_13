@@ -9,7 +9,11 @@ FrontEnd:
 HMTL- CSS - JavaScript - React - Redux
 
 BackEnd:
-NodeJs - ExpressJs - Sequalize - PostgreSql 
+NodeJs - ExpressJs
+
+ORM: Sequelize 
+
+DB: PostgreSql 
 
 Repositorio:
 Git - Github
