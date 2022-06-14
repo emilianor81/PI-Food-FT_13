@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import style from "./recipes.css";
+import "./recipes.css";
 import { searchRecipes, getRecipes, getDiets } from '../../redux/Actions';
 import { connect } from 'react-redux';
 import Recipe from '../recipe/Recipe'
@@ -13,7 +13,6 @@ const Recipes = ({ location, allrecipes, searchedRecipes, searchRecipes, getReci
     getRecipes()
     getDiets();
   }, [getRecipes, getDiets])
-// }, [getRecipes, getDiets])
 
   const [recipes, setRecipes] = useState([]);
   const [page, setPage] = useState(1);
@@ -71,56 +70,33 @@ const Recipes = ({ location, allrecipes, searchedRecipes, searchRecipes, getReci
     }
   }
 
- 
-  // function handleFilter(param) {
-  //    if (recipes.filter(r => {if(r.diets !== undefined && r.diets !== '') r.diets.includes(param.toLowerCase())}))
-  //     {return setRecipes(recipes.filter(r => {if(r.diets !== undefined && r.diets !== '')r.diets.includes(param.toLowerCase())}          ))
-  //    }else{
-  //      return setRecipes([...allrecipes])};
-  //    } 
-
-
      function handleFilter(param) {
       if (param !== undefined && param.length){return setRecipes(recipes.filter(r =>r.diets!==undefined? r.diets.map(e=> e=e.toLowerCase()).includes(param.toLowerCase()): null))
      } else {return setRecipes([...allrecipes])};
     }
 
-    // {diets.filter(d => {return r.diets? r.diets.map(e=> e=e.toLowerCase()).includes(d.name.toLowerCase()):null || r.diets?r.diets.find(diet => d.name === diet.name):null})
-    //         .map(d => <h3 className='diets' key={d.name}>{d.name}</h3>)}
-     //   NO ROMPE CUANDO HAY UNA CREADA, PERO ME DICE QUE NINGUNA COINCIDE CON LA BUSQUEDA
-//   if (recipes.filter(r => r.diets.includes(param.toLowerCase()))){
-//     return setRecipes(recipes.filter(r => r.diets.includes(param.toLowerCase())))
-//  } else {
-//    return setRecipes([...allrecipes])};
-// }
-
-    
- 
     return(
       <div>
         <Filter filter={handleFilter} order={handleOrder} />
-        <div className="recipes">
-        {recipes.length > 0 ? recipes.slice((page - 1) * 9, page * 9).map(r => <div key={r.id}>
-            <Recipe
-                id={r.id}
-                title={r.title}
-                img={r.image}
-                diet={r.diet?r.diet:r.diets}
-                score={r.spoonacularScore}
-              />
-        </div>) :
+        <div className="containerRecipes">
+         {recipes.length > 0 ? recipes.slice((page - 1) * 9, page * 9).map(r => 
+              <Recipe
+                  id={r.id}
+                  title={r.title}
+                  img={r.image}
+                  diet={r.diet?r.diet:r.diets}
+                  score={r.spoonacularScore}
+                />
+          ) :
           <div>
             <h2>No se encontraron recetas que coincidan con la busqueda</h2>
             <img src={Coding} alt='Coding gif' />
           </div>}    
             <Pages allRecipes={recipes} page={page} />   
+       </div>
       </div>
-      </div>
-           
     )
 }
-
-
 
 function mapStateToProps(state) {
   return {
