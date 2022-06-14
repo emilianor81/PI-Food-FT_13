@@ -2,7 +2,6 @@ import React from 'react';
 import './Filter.css';
 import { connect } from 'react-redux';
 import { searchRecipes } from '../../redux/Actions';
-import { Link } from 'react-router-dom';
 
 function Filter (props) {
   return (
@@ -19,17 +18,16 @@ function Filter (props) {
         </div>
         <div className='Filtering'>
           <button className='DropdownButton'>Filter</button>
-          <div className='Filters'>
-            {/* <button onClick={(e) => { e.preventDefault(); props.filter('');}}>Clean Filters</button> */}
-            {props.diets.map(d => <button key={d.id}
-              onClick={(e) => {e.preventDefault(); props.filter(d.name)}}>{d.name}</button>)}
-          </div>
+            <div className='Filters'>
+              {props.diets.map(d => <button key={d.id}
+                onClick={(e) => {e.preventDefault(); props.filter(d.name)}}>{d.name}</button>)}
+            </div>
          
         </div>
         <div>
-        <button className='DropdownButton clear' onClick={(e) => {e.preventDefault(); props.order('')}}>Reset Filter</button>
+           <button className='DropdownButton clear' onClick={(e) => {e.preventDefault(); props.order('')}}>Reset Filter</button>
         </div>
-       </div>
+    </div>
   )
 }
 
