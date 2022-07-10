@@ -3,6 +3,7 @@ import './create.css';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { addRecipe, getRecipes } from '../../redux/Actions';
+import Swal from 'sweetalert2';
 
 function Create(props) {
   // const [errors, setErrors] = useState({});
@@ -19,7 +20,12 @@ function Create(props) {
     e.preventDefault();
     props.addRecipe(form);
     props.getRecipes();
-    alert('Recipe Created Successfully');
+    Swal.fire({
+      icon: 'success',
+      title: 'Recipe Created Successfully',
+      showConfirmButton: false,
+      timer: 1500
+    })
   }
 
 
@@ -42,23 +48,29 @@ function Create(props) {
           <label className='LabelTitle'>health Score:</label>
           <input type='number' min='0' max='100' name='healthScore'
             onChange={(e) => setForm({ ...form, healthScore: e.target.value })} />
+            <div className='textareas'>
+               <label className='LabelTitle'>Summary:</label>
+               <textarea name='summary' onChange={handleInputChange} />
+            </div>     
+            <div className='textareas'>
+                <label className='LabelTitle'>Instructions:</label>
+                <textarea name='instructions' onChange={(e) => setForm({ ...form, instructions: e.target.value })} />
+            </div>          
 
-          <label className='LabelTitle'>Summary:</label>
-          <textarea name='summary' onChange={handleInputChange} />
 
-          <label className='LabelTitle'>Instructions:</label>
-          <textarea name='instructions' onChange={(e) => setForm({ ...form, instructions: e.target.value })} />
         </div>
         <div className='DietsAndSubmitButton'>
           <label className='LabelTitle'> Diets: </label>
           {props.diets.map(d => <label className='DietsLabel' key={d.id}><input type='checkbox' name={d.name} value={d.name}
             onChange={(e) => setForm({ ...form, diets: [...form.diets, e.target.value] })}
           />{d.name}</label>)}
-          <button className='CreateSubmitButton' type='submit'>Submit</button>
           
         </div>
       </form> 
-      <button className='CreateSubmitButton' ><Link className='Link' to='/home'>Back to Home</Link></button>
+      <div className='buttons'>
+          <button className='CreateSubmitButton' onClick={(e) => handleSubmit(e)} type='submit'>Submit</button>
+          <button className='CreateSubmitButton' ><Link to='/home'>Back to Home</Link></button>
+      </div>
 
     </div>
   )

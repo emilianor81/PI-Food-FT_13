@@ -12,7 +12,7 @@ const Recipes = ({ location, allrecipes, searchedRecipes, searchRecipes, getReci
   useEffect(() => {
     getRecipes()
     getDiets();
-  }, [getRecipes, getDiets])
+  }, [getDiets, getRecipes])
 
   const [recipes, setRecipes] = useState([]);
   const [page, setPage] = useState(1);
@@ -26,13 +26,14 @@ const Recipes = ({ location, allrecipes, searchedRecipes, searchRecipes, getReci
 
  
   useEffect(() => {
-    if (searchedRecipes.length > 0 && searchedRecipes !== 'undefined') {
+    if (searchedRecipes.length > 0 && searchedRecipes !== 'undefined' && typeof searchedRecipes !== 'string' ) {
+      //aqui tengo que ponerle un if cosas que si es vacio, no le asigne
       setRecipes(searchedRecipes)
     }
     else {
       setRecipes(allrecipes)
     }
-  }, [allrecipes, searchedRecipes])
+  }, [allrecipes, searchedRecipes, recipes])
 
   useEffect(() => {
     return searchRecipes('')
@@ -79,14 +80,16 @@ const Recipes = ({ location, allrecipes, searchedRecipes, searchRecipes, getReci
       <div>
         <Filter filter={handleFilter} order={handleOrder} />
         <div className="containerRecipes">
-         {recipes.length > 0 ? recipes.slice((page - 1) * 9, page * 9).map(r => 
-              <Recipe
-                  id={r.id}
-                  title={r.title}
-                  img={r.image}
-                  diet={r.diet?r.diet:r.diets}
-                  score={r.spoonacularScore}
-                />
+         {recipes?.length > 0 ? recipes.slice((page - 1) * 9, page * 9).map(r => 
+         <div key={r.id}>
+           <Recipe
+               id={r.id}
+               title={r.title}
+               img={r.image}
+               diet={r.diet?r.diet:r.diets}
+               score={r.spoonacularScore}
+             />
+          </div>
           ) :
           <div>
             <h2>No se encontraron recetas que coincidan con la busqueda</h2>

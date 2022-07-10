@@ -4,13 +4,11 @@ import { getRecipes, getDiets } from '../../redux/Actions';
 import style from './Landing.module.css';
 import { connect } from 'react-redux';
 
-// import {Route} from 
-
 const Landing = ({ getRecipes, getDiets }) => {
     useEffect(() => {
         getRecipes()
         getDiets();
-      }, [])
+      }, [getDiets, getRecipes])
 
     return (
         <div className={style.container}>   

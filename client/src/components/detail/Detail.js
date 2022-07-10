@@ -2,8 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import './detail.css';
 import dog from '../../img/about.gif'
-import { Link } from 'react-router-dom';
-import cooking from '../../img/icono1.jpg'
 import image from '../../img/default.jpg'
 
 function Detail({ recipe, diets }) {
@@ -23,7 +21,6 @@ function Detail({ recipe, diets }) {
   if (r.title !== undefined) {
     return (
       <div id='Details'>
-       {/* <button className='BackButton' onClick={() => setRecipe({})}><Link className='Link' to='/home'>Back to Home</Link></button> */}
         <div id='Detail'>
           <h2>{r.title}</h2>
           <h3>Health Score: {r.healthScore}</h3>
@@ -39,11 +36,6 @@ function Detail({ recipe, diets }) {
             <ul>
             {(r.analyzedInstructions? r.analyzedInstructions.map(d => <li key={d.id} >{d.step}</li>): <li> {r.instructions}</li>)}
             </ul>
-
-            {/* <ol>
-              {(r.instructions?r.instructions.map(d => <li key={d} >{d}</li>)
-            :r.analyzedInstructions[0].steps.map(d => <li key={d.number} >{d.step}</li>))}
-            </ol> */}
          </div>
         </div>
       </div>

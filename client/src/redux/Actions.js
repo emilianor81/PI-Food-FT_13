@@ -47,9 +47,8 @@ export function searchRecipeDetail(recipeId) {
   };
 };
 
-export function addRecipe({ title, summary, spoonacularScore, healthScore, instructions, diets }) {
+export function addRecipe( Recipe ) {
   return function (dispatch) {
-    const Recipe = { title, summary, spoonacularScore, healthScore, instructions, diets };
     axios.post(`http://localhost:3001/recipe`, Recipe)
       .then(res => dispatch({
         type: 'ADD_RECIPE',

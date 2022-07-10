@@ -1,9 +1,8 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 import { Link } from 'react-router-dom';
 import style from "./NavBar.module.css";
-import { searchRecipes, getRecipes } from '../../redux/Actions';
+import { searchRecipes, getRecipes  } from '../../redux/Actions';
 import { connect } from 'react-redux';
-// import Recipe from '../../components/recipe/Recipe'
 
 
 const NavBar = (props) => {
@@ -14,6 +13,7 @@ const NavBar = (props) => {
   // }, [getRecipes, getDiets])
 
   function handleChange(event) {
+    props.searchRecipes(event.target.value)
     setRecipes(event.target.value)
   }
 
@@ -21,8 +21,6 @@ const NavBar = (props) => {
     e.preventDefault()
     props.searchRecipes(recipe)
     setRecipes('')
-    // console.log(recipes)
-    // props.searchRecipes(recipe)
   }
 
   return (
@@ -30,10 +28,10 @@ const NavBar = (props) => {
         <div className={style.Links}>
             <Link to="/home" className={style.link}>Home</Link>
             <Link to="/about" className={style.link}>About</Link>            
-            <Link to="/create" className={style.link}>Create Recipe</Link>         
+            <Link to="/create" className={style.link}>Create Recipe</Link>  
         </div>
       <div  className={style.form}> 
-      <form onSubmit={(e) => { handleSubmit(e) }}>
+        <form onSubmit={(e) => { handleSubmit(e) }}>
           <input className={style.input} id='SearchInput' type='text' placeholder='Ingrese su busqueda' value={recipe}
             onChange={(e) => { handleChange(e) }}/>
           <input className={style.boton} id='SearchSubmitButton' type='submit' value='Search' />
@@ -57,12 +55,8 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
   return {
     searchRecipes: (recipe) => dispatch(searchRecipes(recipe)),
-    getRecipes: (recipe) => dispatch(getRecipes(recipe)),
-
+    getRecipes: () => dispatch(getRecipes()),
   }
 }
 
-
 export default connect(mapStateToProps, mapDispatchToProps)(NavBar);
-
-  
